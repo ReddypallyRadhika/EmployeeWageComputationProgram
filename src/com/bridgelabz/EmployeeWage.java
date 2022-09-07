@@ -11,6 +11,8 @@ import java.util.Random;
  */
 public class EmployeeWage {
 
+	public static final int PartTime = 1;
+	public static final int FullTime = 2;
 	/**
 	 * @param args
 	 */
@@ -30,32 +32,37 @@ public class EmployeeWage {
 	*Add Part time Employee & Wage
     *- Assume Part time Hour is 4
     **/
+	/*
+	 * UC4
+	 * Solving using Case Statement
+	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int Wageperhr =20;
 		int Fulldayhr =8;
 		int DailyEmpWage =0;
-		int PartTime =4;
+		
+		int Emphrs=0;
         Random random =new Random();
 		int EmpPresent=random.nextInt(0,3);
 		
-		if(EmpPresent==1)
+		switch(EmpPresent)
 		{
-		System.out.println("Employee full day present");
-		DailyEmpWage = Wageperhr*Fulldayhr;
-		System.out.println("Daily Employee Wage:"+DailyEmpWage);
+		case PartTime:
+		     Emphrs=4;
+		     break;
+		case FullTime:
+			Emphrs=8;
+			break;
+		default:
+			Emphrs=0;
 		}
-		else if(EmpPresent==2)
-		{
-		System.out.println("Employee half day present");
-		DailyEmpWage = Wageperhr*PartTime;
+		DailyEmpWage = Wageperhr*Emphrs;
 		System.out.println("Daily Employee Wage:"+DailyEmpWage);
-		}
-		else
-		{
-		System.out.println("Employee is absent");
-	}
+		
+	
+	
 	}
 
 }
