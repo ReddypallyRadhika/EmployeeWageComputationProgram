@@ -4,6 +4,7 @@
 package com.bridgelabz;
 
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 /**
  * @author hp
@@ -13,6 +14,8 @@ public class EmployeeWage {
 
 	public static final int PartTime = 1;
 	public static final int FullTime = 2;
+	public static final int Wageperhr =20;
+	public static final int WorkingDays =2;
 	/**
 	 * @param args
 	 */
@@ -20,6 +23,7 @@ public class EmployeeWage {
 	 * Check Employee is
      *Present or Absent
 -    *Use ((RANDOM)) for Attendance Check*/
+	private static RandomGenerator random;
 	
 	/*
 	 * UC2
@@ -36,16 +40,22 @@ public class EmployeeWage {
 	 * UC4
 	 * Solving using Case Statement
 	 */
+	/*
+	 * UC5
+	 * Calculating Wages for a Month assuming 20 Working Days in a Month
+	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int Wageperhr =20;
 		int Fulldayhr =8;
 		int DailyEmpWage =0;
-		
+		int TotalEmpWage =0;
 		int Emphrs=0;
-        Random random =new Random();
-		int EmpPresent=random.nextInt(0,3);
+		if( int day = 0; day< WorkingDays ; day++)
+		{
+       // Random random =new Random();
+		int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
 		
 		switch(EmpPresent)
 		{
@@ -59,10 +69,11 @@ public class EmployeeWage {
 			Emphrs=0;
 		}
 		DailyEmpWage = Wageperhr*Emphrs;
+		TotalEmpWage +=DailyEmpWage;
 		System.out.println("Daily Employee Wage:"+DailyEmpWage);
 		
-	
-	
+		}
+		System.out.println("Daily Employee Wage:"+TotalEmpWage);
 	}
 
 }
