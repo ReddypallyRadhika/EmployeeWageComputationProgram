@@ -3,8 +3,6 @@
  */
 package com.bridgelabz;
 
-import java.util.Random;
-import java.util.random.RandomGenerator;
 
 /**
  * @author hp
