@@ -16,6 +16,7 @@ public class EmployeeWage {
 	public static final int FullTime = 2;
 	public static final int Wageperhr =20;
 	public static final int WorkingDays =2;
+	public static final int Maxhrinmonth =10;
 	/**
 	 * @param args
 	 */
@@ -23,7 +24,7 @@ public class EmployeeWage {
 	 * Check Employee is
      *Present or Absent
 -    *Use ((RANDOM)) for Attendance Check*/
-	private static RandomGenerator random;
+	//private static RandomGenerator random;
 	
 	/*
 	 * UC2
@@ -44,17 +45,21 @@ public class EmployeeWage {
 	 * UC5
 	 * Calculating Wages for a Month assuming 20 Working Days in a Month
 	 */
+	/*UC6
+	 * Calculate Wages till a condition of total working hours or days is 
+	 * reached for a month - Assume 100 hours and 20 days
+	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int Wageperhr =20;
-		int Fulldayhr =8;
 		int DailyEmpWage =0;
-		int TotalEmpWage =0;
 		int Emphrs=0;
-		if( int day = 0; day< WorkingDays ; day++)
+		int TotalEmphrs=0;
+		int TotalWorkingDays =0;
+		
+		while(TotalEmphrs<=Maxhrinmonth && TotalWorkingDays<WorkingDays)
 		{
-       // Random random =new Random();
+			TotalWorkingDays++;
 		int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
 		
 		switch(EmpPresent)
@@ -68,12 +73,12 @@ public class EmployeeWage {
 		default:
 			Emphrs=0;
 		}
-		DailyEmpWage = Wageperhr*Emphrs;
-		TotalEmpWage +=DailyEmpWage;
-		System.out.println("Daily Employee Wage:"+DailyEmpWage);
+		TotalEmphrs+=Emphrs;
+		System.out.println("Day#:"+TotalWorkingDays +"Emp hrs:"+Emphrs);
 		
 		}
-		System.out.println("Daily Employee Wage:"+TotalEmpWage);
+		int TotalEmpWage =TotalEmphrs*Wageperhr;
+		System.out.println("Total Employee Wage:"+TotalEmpWage);
 	}
 
 }
