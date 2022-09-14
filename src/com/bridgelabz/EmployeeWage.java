@@ -12,9 +12,6 @@ public class EmployeeWage {
 
 	public static final int PART_TIME = 1;
 	public static final int FULL_TIME = 2;
-	public static final int WAGE_PER_HR =20;
-	public static final int WORKING_DAYS =2;
-	public static final int MAX_WORKING_HRS =100;
 	/**
 	 * @param args
 	 */
@@ -53,14 +50,14 @@ public class EmployeeWage {
 	 * Refactor the Code to write a Class Method to Compute Employee Wage
 	 * 
 	 */
-	public static int computeEmpWage() 
+	public int computeEmpWage(String Companyname,int Totalworkingdays,int Wageperhr,int Maxworkinghrs) 
 	{
 	
 		
 		int TotalEmpHrs =0;
 		int Emphrs=0;
 		int TotalWorkingDays =0;
-		while( TotalEmpHrs <= MAX_WORKING_HRS && TotalWorkingDays <=WORKING_DAYS)
+		while( TotalEmpHrs <= Maxworkinghrs && TotalWorkingDays <=Totalworkingdays)
 		{
 			TotalWorkingDays++;
 	    int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
@@ -79,12 +76,15 @@ public class EmployeeWage {
 		TotalEmpHrs+=Emphrs;
 		System.out.println("Day#:"+TotalWorkingDays +"Emp hrs:"+Emphrs);
 		}
-		int TotalEmpWage =TotalEmpHrs*WAGE_PER_HR;
+		int TotalEmpWage =TotalEmpHrs*Wageperhr;
 		System.out.println("Total Employee Wage:"+TotalEmpWage);
 		return TotalEmpWage;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		computeEmpWage();
+		EmployeeWage employeeWage1 = new EmployeeWage();
+		employeeWage1.computeEmpWage("HP", 25, 20, 30);
+		EmployeeWage employeeWage2 = new EmployeeWage();
+		employeeWage2.computeEmpWage("Dell", 20, 10, 30);
 	}
 }
