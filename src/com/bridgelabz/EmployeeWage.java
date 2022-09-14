@@ -10,11 +10,11 @@ package com.bridgelabz;
  */
 public class EmployeeWage {
 
-	public static final int PartTime = 1;
-	public static final int FullTime = 2;
-	public static final int Wageperhr =20;
-	public static final int WorkingDays =2;
-	public static final int Maxhrinmonth =10;
+	public static final int PART_TIME = 1;
+	public static final int FULL_TIME = 2;
+	public static final int WAGE_PER_HR =20;
+	public static final int WORKING_DAYS =2;
+	public static final int MAX_WORKING_HRS =100;
 	/**
 	 * @param args
 	 */
@@ -43,40 +43,48 @@ public class EmployeeWage {
 	 * UC5
 	 * Calculating Wages for a Month assuming 20 Working Days in a Month
 	 */
-	/*UC6
-	 * Calculate Wages till a condition of total working hours or days is 
-	 * reached for a month - Assume 100 hours and 20 days
+	/*
+	 * UC6
+	 * Calculate Wages till a condition of total working hours or days
+	 *  is reached for a month 
+	 *  - Assume 100 hours and 20 days
 	 */
+	/*UC7
+	 * Refactor the Code to write a Class Method to Compute Employee Wage
+	 * 
+	 */
+	public static int computeEmpWage() 
+	{
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int DailyEmpWage =0;
-		int Emphrs=0;
-		int TotalEmphrs=0;
-		int TotalWorkingDays =0;
 		
-		while(TotalEmphrs<=Maxhrinmonth && TotalWorkingDays<WorkingDays)
+		int TotalEmpHrs =0;
+		int Emphrs=0;
+		int TotalWorkingDays =0;
+		while( TotalEmpHrs <= MAX_WORKING_HRS && TotalWorkingDays <=WORKING_DAYS)
 		{
 			TotalWorkingDays++;
-		int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
+	    int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
 		
 		switch(EmpPresent)
 		{
-		case PartTime:
+		case PART_TIME:
 		     Emphrs=4;
 		     break;
-		case FullTime:
+		case FULL_TIME:
 			Emphrs=8;
 			break;
 		default:
 			Emphrs=0;
 		}
-		TotalEmphrs+=Emphrs;
+		TotalEmpHrs+=Emphrs;
 		System.out.println("Day#:"+TotalWorkingDays +"Emp hrs:"+Emphrs);
-		
 		}
-		int TotalEmpWage =TotalEmphrs*Wageperhr;
+		int TotalEmpWage =TotalEmpHrs*WAGE_PER_HR;
 		System.out.println("Total Employee Wage:"+TotalEmpWage);
+		return TotalEmpWage;
 	}
-
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		computeEmpWage();
+	}
 }
