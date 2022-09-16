@@ -12,6 +12,12 @@ public class EmployeeWage {
 
 	public static final int PART_TIME = 1;
 	public static final int FULL_TIME = 2;
+	
+	private final String companyName;
+	private final int workingDays;
+	private final int wagePerHr;
+	private final int maxWorkingHrs;
+	private int totalEmpWage;
 	/**
 	 * @param args
 	 */
@@ -56,46 +62,59 @@ public class EmployeeWage {
 	 * - Note: Each Company has its own wage, number of working days and working hours per month
 	 * - Use Class Method with function parameters instead of Class Variables
 	 */
-	public int computeEmpWage(String Companyname,int Totalworkingdays,int Wageperhr,int Maxworkinghrs) 
-	{
 	
+	public EmployeeWage(String companyName,int workingDays,int wagePerHr,int maxWorkingHrs) 
+	{
+		this.companyName  =companyName;
+		this.workingDays =workingDays;
+		this.wagePerHr = wagePerHr;
+		this.maxWorkingHrs = maxWorkingHrs;
 		
-		int TotalEmpHrs =0;
-		int Emphrs=0;
-		int TotalWorkingDays =0;
-		while( TotalEmpHrs <= Maxworkinghrs && TotalWorkingDays <=Totalworkingdays)
+	}
+	public int computeEmpWage()
+	
+	{
+		int totalEmpHrs =0;
+		int empHrs=0;
+		int totalWorkingDays =0;
+		while( totalEmpHrs <= maxWorkingHrs && totalWorkingDays <=workingDays)
 		{
-			TotalWorkingDays++;
+			totalWorkingDays++;
 	    int EmpPresent=(int) (Math.floor(Math.random()*10)%3);
 		
 		switch(EmpPresent)
 		{
 		case PART_TIME:
-		     Emphrs=4;
+		     empHrs=4;
 		     break;
 		case FULL_TIME:
-			Emphrs=8;
+			empHrs=8;
 			break;
 		default:
-			Emphrs=0;
+			empHrs=0;
 		}
-		int DailyEmpWage = Wageperhr*Emphrs;
-		TotalEmpHrs+=Emphrs;
-		System.out.println("Day#:"+TotalWorkingDays +"Emp hrs:"+Emphrs);
+		int DailyEmpWage = wagePerHr*empHrs;
+		totalEmpHrs+=empHrs;
+		System.out.println("Day#:"+totalWorkingDays +"Emp hrs:"+empHrs);
 		System.out.println("Daily Employee Wage:"+DailyEmpWage);
 		}
-		int TotalEmpWage =TotalEmpHrs*Wageperhr;
-		System.out.println("Total Employee Wage:"+TotalEmpWage);
-		return TotalEmpWage;
+		int totalEmpWage =totalEmpHrs*wagePerHr;
+		System.out.println("Total Employee Wage:"+totalEmpWage);
+		return totalEmpWage;
+	}
+	public String toString()
+	{
+		return "Total Employee Wage for Company:"+companyName+"is:"+totalEmpWage;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Company1");
-		EmployeeWage employeeWage1 = new EmployeeWage();
-		employeeWage1.computeEmpWage("HP", 25, 20, 30);
+		System.out.println("HP");
+		EmployeeWage employeeWage1 = new EmployeeWage("HP", 25, 20, 30);
+		employeeWage1.computeEmpWage();
 		System.out.println("");
-		System.out.println("Company2");
-		EmployeeWage employeeWage2 = new EmployeeWage();
-		employeeWage2.computeEmpWage("Dell", 20, 10, 30);
+		System.out.println("DELL");
+		EmployeeWage employeeWage2 = new EmployeeWage("Dell", 20, 10, 30);
+		employeeWage2.computeEmpWage();
+		employeeWage2.toString();
 	}
 }
