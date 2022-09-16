@@ -15,41 +15,7 @@ public class EmployeeWage {
 	/**
 	 * @param args
 	 */
-	/**UC1
-	 * Check Employee is
-     *Present or Absent
--    *Use ((RANDOM)) for Attendance Check*/
-	//private static RandomGenerator random;
 	
-	/*
-	 * UC2
-	 * Calculate Daily Employee Wage
-     *Assume Wage per hour is 20
-     *Assume full day hr is 8
-	 */
-	
-	/*UC3
-	*Add Part time Employee & Wage
-    *- Assume Part time Hour is 4
-    **/
-	/*
-	 * UC4
-	 * Solving using Case Statement
-	 */
-	/*
-	 * UC5
-	 * Calculating Wages for a Month assuming 20 Working Days in a Month
-	 */
-	/*
-	 * UC6
-	 * Calculate Wages till a condition of total working hours or days
-	 *  is reached for a month 
-	 *  - Assume 100 hours and 20 days
-	 */
-	/*UC7
-	 * Refactor the Code to write a Class Method to Compute Employee Wage
-	 * 
-	 */
 	/*
 	 * UC8
 	 * Compute Employee Wage for multiple companies 
